@@ -45,8 +45,8 @@ def my_cv2DCT( f ) :
     for k in range(num) :
         for n in range(0, num) :
             F[k] += f[n] * math.cos(c*k*(n+0.5))
-    F[0]     *= math.sqrt(1/N)
-    F[1:num] *= math.sqrt(2/N)
+    F[0]     *= math.sqrt(1/num)
+    F[1:num] *= math.sqrt(2/num)
     return F
 
 
@@ -54,9 +54,9 @@ def my_cv2DCT_inv( F ) :
     num = F.shape[0]
     f   = np.zeros_like(F)
     c   = math.pi / num
-    coef = math.sqrt(2/N)
+    coef = math.sqrt(2/num)
     for k in range(num) :
-        f[k] += math.sqrt(1/N) * F[0]
+        f[k] += math.sqrt(1/num) * F[0]
         for n in range(1, num) :
             f[k] += coef * F[n] * math.cos(c*n*(k+0.5))
     return f
