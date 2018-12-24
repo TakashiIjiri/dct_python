@@ -132,6 +132,7 @@ if __name__ == '__main__':
     img_dct_inv = my_cv2DCT2D_inv(img_dct)
     cv2.imwrite("ex2_img_dct.png"   , np.uint8( np.fabs(img_dct)* 5.0 ) )
     cv2.imwrite("ex2_img_dctinv.png", np.uint8( img_dct_inv) )
+    print( np.sum(np.abs(cv2.dct(img) - img_dct)) )
 
     #cv2.dctのテスト
     img_dct = cv2.dct(img)
